@@ -9,6 +9,7 @@
 
 /*------ project spec includes --------*/
 #include "ColorCodeProj.h"
+
 void ColorPairToString(const ColorPair* colorPair, char* buffer) {
     sprintf(buffer, "%s %s",
         MajorColorNames[colorPair->majorColor],
@@ -19,14 +20,14 @@ ColorPair GetColorFromPairNumber(int pairNumber) {
     ColorPair colorPair;
     int zeroBasedPairNumber = pairNumber - 1;
     colorPair.majorColor = 
-        (enum MajorColor)(zeroBasedPairNumber / numberOfMinorColors);
+        (enum MajorColor)(zeroBasedPairNumber / (int)NUM_OF_MINOR_COLOR);
     colorPair.minorColor =
-        (enum MinorColor)(zeroBasedPairNumber % numberOfMinorColors);
+        (enum MinorColor)(zeroBasedPairNumber % (int)NUM_OF_MINOR_COLOR);
     return colorPair;
 }
 
 int GetPairNumberFromColor(const ColorPair* colorPair) {
-    return colorPair->majorColor * numberOfMinorColors +
+    return colorPair->majorColor * (int)NUM_OF_MINOR_COLOR +
             colorPair->minorColor + 1;
 }
 
