@@ -15,7 +15,6 @@ const char* MinorColorNames[] = {
 const int MAX_COLORPAIR_NAME_CHARS = 16;
 int numberOfMinorColors =
     sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
-
 typedef struct {
     enum MajorColor majorColor;
     enum MinorColor minorColor;
@@ -57,14 +56,14 @@ void testNumberToPair(int pairNumber,
 void testPairToNumber(
     enum MajorColor major,
     enum MinorColor minor,
-    int expectedPairNumber)
+    int expectedPairNum_i)
 {
     ColorPair colorPair;
     colorPair.majorColor = major;
     colorPair.minorColor = minor;
-    int pairNumber = GetPairNumberFromColor(&colorPair);
+    int actualPairNumber_i = GetPairNumberFromColor(&colorPair);
     printf("Got pair number %d\n", pairNumber);
-    assert(pairNumber == expectedPairNumber);
+    assert(actualPairNumber_i == expectedPairNum_i); /*Validation of given and calculated number*/
 }
 
 int main() {
