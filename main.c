@@ -62,7 +62,7 @@ void testPairToNumber(
     colorPair.majorColor = major;
     colorPair.minorColor = minor;
     int actualPairNumber_i = GetPairNumberFromColor(&colorPair);
-    printf("Got pair number %d\n", pairNumber);
+    printf("Actual pair num calc based on colors  %d\n", actualPairNumber_i); 
     assert(actualPairNumber_i == expectedPairNum_i); /*Validation of given and calculated number*/
 }
 
