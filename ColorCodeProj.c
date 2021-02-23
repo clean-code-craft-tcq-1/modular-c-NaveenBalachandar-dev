@@ -31,34 +31,34 @@ int GetPairNumberFromColor(const ColorPair* colorPair) {
 }
 
 void testNumberToPair(int pairNumber,
-    enum MajorColor expectedMajor,
-    enum MinorColor expectedMinor)
+    enum MajorColor expectedMajor_e,
+    enum MinorColor expectedMinor_e)
 {
     ColorPair colorPair = GetColorFromPairNumber(pairNumber);
     char colorPairNames[MAX_COLORPAIR_NAME_CHARS];
     ColorPairToString(&colorPair, colorPairNames);
     printf("Caluclated pair %s\n", colorPairNames);
-    assert(colorPair.majorColor == expectedMajor);/*Validation of given and calculated color */
-    assert(colorPair.minorColor == expectedMinor);
+    assert(colorPair.majorColor == expectedMajor_e);/*Validation of given and calculated color */
+    assert(colorPair.minorColor == expectedMinor_e);
 }
 
 void testPairToNumber(
-    enum MajorColor major,
-    enum MinorColor minor,
+    enum MajorColor major_e,
+    enum MinorColor minor_e,
     int expectedPairNum_i)
 {
     ColorPair colorPair;
-    colorPair.majorColor = major;
-    colorPair.minorColor = minor;
+    colorPair.majorColor = major_e;
+    colorPair.minorColor = minor_e;
     int actualPairNumber_i = GetPairNumberFromColor(&colorPair);
     printf("Actual pair num calc based on colors  %d\n", actualPairNumber_i); 
     assert(actualPairNumber_i == expectedPairNum_i); /*Validation of given and calculated number*/
 }
 
-int main() {
+void  main() {
+    /*Unit testing*/
     testNumberToPair(4, WHITE, BROWN);
     testNumberToPair(5, WHITE, SLATE);
     testPairToNumber(BLACK, ORANGE, 12);
     testPairToNumber(VIOLET, SLATE, 25);
-    return 0;
 }
