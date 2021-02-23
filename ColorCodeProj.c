@@ -45,7 +45,7 @@ void testNumberToPair(int pairNumber,
 void testPairToNumber(
     enum MajorColor major,
     enum MinorColor minor,
-    int expectedPairNumber)
+    int expectedPairNum_i)
 {
     ColorPair colorPair;
     colorPair.majorColor = major;
